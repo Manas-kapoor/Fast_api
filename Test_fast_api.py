@@ -15,6 +15,7 @@ conn=MongoClient('mongodb+srv://manaskapoor3000:Manaskapoor1@cluster0.hlivcrp.mo
 @app.get("/", response_class=HTMLResponse)
 async def read_item(request: Request):
     docs=conn.Notes.notes.find({})
+    
     new_docs=[]
     for doc in docs:
         new_docs.append({

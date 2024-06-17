@@ -46,18 +46,18 @@
 
     <div class="container"> 
       <h1>Start adding your notes in the database</h1>
-      <form method="post">
+      <form action="/" method="post">
       <div class="mb-3">
         <label for="title" class="form-label">Note title</label>
-        <input type="text" class="form-control" id="title" aria-describedby="emailhelp">
+        <input type="text" class="form-control" name="title" aria-describedby="emailhelp">
       </div>
       <div class="mb-3">
         <label for="desc" class="form-label">Note Description</label>
-        <input type="text" class="form-control" id="desc" aria-describedby="emailhelp">
+        <input type="text" class="form-control" name="desc" aria-describedby="emailhelp">
       </div>
       <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <input type="checkbox" class="form-check-input" name="important" id="exampleCheck1">
+        <label class="important" for="exampleCheck1">Check me out</label>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -65,9 +65,15 @@
     </div>  
     <div class="container">
       <h2>Your notes</h2>
+        <!-- {% if not new_docs%}
+        No notes available
+      {% endif %} -->
       {% for item in new_docs %}
       <div>
-        {{item.note}}
+        <h5>{{item.title}} </h5>
+        <p>{{item.desc}}</p>
+        
+        {{item.important}}
 
 
       </div>
